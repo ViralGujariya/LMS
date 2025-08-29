@@ -12,8 +12,8 @@ const Context = ({ children }) => {
 
   const gifImg="https://cdn.pixabay.com/animation/2023/11/30/10/11/10-11-02-622_512.gif"
 
-  const BackendURL = "http://localhost:5000";
-  const MongoURL = "http://localhost:5000/book"; 
+  const BackendURL = "https://lms-backend-viral.onrender.com";
+  const MongoURL = "https://lms-backend-viral.onrender.com/book"; 
   
 /* 
   const BackendURL = "http://localhost:5000";
