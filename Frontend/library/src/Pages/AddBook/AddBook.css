@@ -1,0 +1,103 @@
+.add_book_section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.book_add {
+  background-color: #fdf5ff;
+  width: 700px;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book_add_title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.book_add_title h2 {
+  color: #3f51b5;
+  font-size: 24px;
+  margin: 0;
+}
+
+.book_add_form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* General row layout */
+.row1,
+.row2,
+.row3,
+.row4 {
+  display: flex;
+  gap: 20px;
+}
+
+.row1 > div,
+.row2 > div,
+.row3 > div,
+.row4 > div {
+  flex: 1; /* Equal width */
+}
+
+.book_add_form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #333;
+}
+
+.book_add_form input,
+.book_add_form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.book_add_form input:focus,
+.book_add_form textarea:focus {
+  border-color: #3f51b5;
+  outline: none;
+}
+
+.book_add_form textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #283593;
+}
+
+/* ✅ Responsive for mobile */
+@media (max-width: 600px) {
+  .row1,
+  .row2,
+  .row3,
+  .row4 {
+    flex-direction: column; /* Stack vertically */
+  }
+}

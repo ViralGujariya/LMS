@@ -1,0 +1,66 @@
+/* const { v4: uuidv4 } = require("uuid");
+const { setUser } = require("../service/auth"); */
+const USER = require("../Model/userModel");
+const {setUser}=require("../service/auth")
+
+
+async function handleUserSignup(req, res) {
+  const { name, email, password,s_id,department } = req.body;
+
+  const existingUser = await USER.findOne({email});
+  if (existingUser) {
+    return res.status(400).json({ message: "User already exists" });
+  }
+
+  const data=await USER.create({
+    name,
+    email,
+    password,
+    department,
+    s_id
+  });
+  return res.json(data);
+}
+
+async function handleUserLogin(req, res) {
+  const { email, password } = req.body;
+  const user = await USER.findOne({ email, password });
+
+  if (!user) return res.status(401).json({ message: "Invalid credentials" });
+
+  // ✅ create token
+  const token = setUser(user);
+
+  return res.json({ 
+    message: "Login successful", 
+    token 
+  });
+}
+
+
+
+async function sendUserdata(req,res){
+  const userData=await USER.find({});
+  res.json(userData);
+}
+
+async function sendUserWithId(req,res){
+  const {_id}=req.body
+  if(!_id){
+    console.log("ID missing")
+  }
+const userData = await USER.findById(_id);
+  
+  if (!userData) {
+    return res.json({ message: "404" });
+  }
+
+  res.json(userData); 
+}
+
+module.exports = {
+  handleUserSignup,
+  handleUserLogin,
+  sendUserdata,
+  sendUserWithId
+};
